@@ -1,3 +1,7 @@
+"""
+Charts plotten in verschiedene Typen 
+"""
+
 import yfinance as yf
 import pandas as pd # Tabellen
 import plotly.graph_objects as go # malt diagramme länger aber man kann alles verändern
@@ -21,7 +25,7 @@ fig.add_trace(go.Scatter( # nimm Stift und hinterlasse spur
     mode="lines",
     name="Kurs",
     line=dict(color="#2563eb", width=1.5)
-))
+)) # Einfacher Linienchart wird mit den daten aus oben df gezeichnet 
 
 fig.update_layout(
     title=f"{ticker} - Kursverlauf 1 Jahr",
@@ -30,7 +34,7 @@ fig.update_layout(
     hovermode="x unified",          # Zeigt alle Werte beim hovern 
     xaxis_rangeslider_visible=True, # Zoom Slider unten
     template="plotly_white"
-)
+) # verschönern des rohbaus der add_trace datei 
 
 fig.show() # öffnet im Browser interaktiv 
 
@@ -47,7 +51,8 @@ fig2 = go.Figure(data=[go.Candlestick(
     increasing_line_color="#16a34a",
     decreasing_line_color="#dc2626",
     name=ticker
-)])
+)]) # go.candlestick macht hier den unterschied  
+# open undso wird alles eigen definiert
 
 # Nur letzten 90 Tage anzeigen - sonst zu eng 
 fig2.update_xaxes(range=[df.index[-90], df.index[-1]])
@@ -71,7 +76,7 @@ fig3 = make_subplots(
     shared_xaxes=True,
     vertical_spacing=0.05, # platz zwischen den beiden charts
     row_heights=[0.7,0.3] # Kurs hat mehr Platz 
-) 
+)  # subplots macht die collage
 
 # Kurs 
 fig3.add_trace(go.Scatter(
