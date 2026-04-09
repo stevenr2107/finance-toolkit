@@ -336,14 +336,14 @@ with tab2:
         return "" # gibt nichts zurück wenn keine zahl 
     # lies in der nächsten zeile weiter = backslash
     styled = perf_df.style\
-        .applymap(color_returns, subset=["1M", "3M", "6M", "1Y"])\
+        .map(color_returns, subset=["1M", "3M", "6M", "1Y"])\
         .format("{:.2f}%", subset=["1M", "3M", "6M", "1Y", "Volatilität"])\
         .format("{:.1f})", subset=["RSI"]) # applymap malt die zahlen an
 
     st.dataframe(styled, use_container_width=True)
 
     #--- normalisierter Kursverlauf ---
-    st.markdown("#### Kursverlaf normalisiert (Startpunkt = 100)")
+    st.markdown("#### Kursverlauf normalisiert (Startpunkt = 100)")
 
     import plotly.graph_objects as go
 
