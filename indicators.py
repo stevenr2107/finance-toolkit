@@ -196,13 +196,13 @@ def find_crossovers(df:pd.DataFrame) -> pd.DataFrame:
     df["SMA200"] = sma(close,200)
 
     # 1 wenn sma50 > sma200 sonst 0 
-    df["above"] = (df["SMA50"] > df["SMA200"]).astype(int)
+    df["above"] = (df["SMA50"] > df["SMA200"]).astype(int) # zeigt 1/ 0 wer oben ist
 
     # Wenn sich das ändert = crossover
-    df["cross"] = df["above"].diff()
+    df["cross"] = df["above"].diff() # neue spalte mit heute - gestern -> viele 0 ab und zu ne 1 /-1
 
-    golden = df[df["cross"] == 1][["Close", "SMA50", "SMA200"]]
-    death  = df[df["cross"] == -1][["Close", "SMA50", "SMA200"]]
+    golden = df[df["cross"] == 1][["Close", "SMA50", "SMA200"]] # zeige nur wo df[cross] = 1 und dann printe nur close, sma und sma200
+    death  = df[df["cross"] == -1][["Close", "SMA50", "SMA200"]] # zeige nur wo df[cross] = -1
 
     print("=== Golden Cross Signale (Bullish) ===")
     print(golden.round(2))
