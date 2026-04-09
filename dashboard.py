@@ -532,7 +532,7 @@ with tab4:
             return f"background-color: {color}"
         return ""
     st.dataframe(
-        export_df.style.applymap(
+        export_df.style.map(
             highlight_returns, subset=["Return"]
         ),
         use_container_width=True,
