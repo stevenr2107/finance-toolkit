@@ -110,7 +110,7 @@ def compute_indicators(ticker: str) -> dict | None:
         return None
     
 def run_screener(tickers: list,
-                 max_stocks: int = 50,
+                 max_stocks: int = 503,
                  delay: float = 0.3) -> pd.DataFrame:
     
     """
@@ -325,17 +325,29 @@ def plot_top_momentum(df: pd.DataFrame, top_n: int = 10) -> None:
 
 if __name__ == "__main__":
 
-    # --- Ticker laden ---
-    tickers, sp500_info = get_sp500_tickers()
+    # --- 1. EINSTELLUNGEN ---
+    LOAD_FROM_CSV = True # Auf False wenn morgens frische Daten ziehen, sonst zum updaten auf True 
+    CSV_FILENAME = "screener_results_20260413_1207.csv" # echten Dateinamen eingeben
 
-    # Für den ersten Run: 50 Aktien ( dauert ca. 3 min)
-    # Später: max_stocks=503 für kompletten s&p 500
-    df = run_screener(tickers, max_stocks=50, delay=0.3)
+    # --- 2. Daten beschaffen oder laden ---
+    if LOAD_FROM_CSV:
+        print(f"Lade gespeicherte Daten aus {CSV_FILENAME}...")
+        df = pd.read_csv(CSV_FILENAME)
+    else:
+        print("Starte frischen S&P 500 Screener...")
+        tickers, sp500_info = get_sp500_tickers()
 
-    # Optional: ergebnisse speichern damit du nicht immer neu laden musst
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M")
-    df.to_csv(f"screener_results_{timestamp}.csv", index=False)
-    print(f"\nErgebnisse gespeichert: screener_results_{timestamp}.csv")
+        #kompletten s&p 500 screenen
+
+        df = run_screener(tickers, max_stocks =503, delay=0.3)
+
+        # Für den ersten Run: 50 Aktien ( dauert ca. 3 min)
+        # Später: max_stocks=503 für kompletten s&p 500
+
+        # Optional: ergebnisse speichern damit du nicht immer neu laden musst
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+        df.to_csv(f"screener_results_{timestamp}.csv", index=False)
+        print(f"\nErgebnisse gespeichert: screener_results_{timestamp}.csv")
 
     # --- Filter anwenden ---
     print("\n" + "=" * 50)
