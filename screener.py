@@ -327,7 +327,7 @@ if __name__ == "__main__":
 
     # --- 1. EINSTELLUNGEN ---
     LOAD_FROM_CSV = True # Auf False wenn morgens frische Daten ziehen, sonst zum updaten auf True 
-    CSV_FILENAME = "screener_results_20260413_1207.csv" # echten Dateinamen eingeben
+    CSV_FILENAME = "screener_results_20260413_1207.csv" # echten Dateinamen des heutigen Tages eingeben
 
     # --- 2. Daten beschaffen oder laden ---
     if LOAD_FROM_CSV:
