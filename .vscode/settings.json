@@ -1,3 +1,8 @@
 {
-    "editor.fontSize": 15
+    "editor.fontSize": 15,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 4,        // oder 2, je nach Präferenz
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false  // wichtig! sonst überschreibt VSCode deine Settings 
 }
