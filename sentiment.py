@@ -509,3 +509,8 @@ if __name__ == "__main__":
     if not news.empty:
         news.to_csv(f"sentiment_{TICKER}.csv", index=False)
         print(f"\nGespeichert: sentiment_{TICKER}.csv")
+
+
+"""
+Schaut welche aktien stark von news abhängig sind kann man posten 
+"""

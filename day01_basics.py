@@ -1,3 +1,10 @@
+"""
+Day 01 Market Data Basics
+Lädt historische Kursdaten via yfinance und beredhnet
+grundlegende Kennzahlen: 52W High/Low, Volumen 
+"""
+
+
 import yfinance as yf
 import pandas as pd
 

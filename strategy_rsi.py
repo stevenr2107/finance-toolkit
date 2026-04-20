@@ -561,3 +561,7 @@ if __name__ == "__main__": # Hier kann man an den Parametern spielen
           best_result = run_backtest(best, cfg)
           plot_strategy(best_result)
      
+
+"""
+Kann man sehr gut dran rumspielen und posten. 
+"""

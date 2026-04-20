@@ -129,7 +129,7 @@ sns.heatmap(
     linewidths=0.5,
     ax=ax,
     annot_kws={"size":11} # schriftgröße
-)
+) # heatmap ist diese vierfeldertafel
 
 ax.set_title("Korrelationsmatrix - Magnificent 7 (1 Jahr)",
              fontsize=14, pad=15)

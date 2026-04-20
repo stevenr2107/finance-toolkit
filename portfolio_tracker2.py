@@ -263,28 +263,7 @@ def plot_portfolio_overview(positions: pd.DataFrame) -> None:
         height=400,
         template="plotly_white",
         showlegend=False,
-        margin=dict(l=0, r=0, t=40, b=0),
-        annotations=[
-            dict(
-                x=0.98, y=0.98,          # Position: oben rechts
-                xref="paper", yref="paper",
-                xanchor="right", yanchor="top",
-                text=(
-                    "⚠️ <b>Warum Verlust bei NVDA?</b><br>"
-                    "Der eingetragene Kaufpreis ($495) ist pre-split.<br>"
-                    "yfinance liefert split-adjustierte Kurse (~$49.50).<br>"
-                    "Fix: buy_price ÷ 10 eintragen <b>oder</b><br>"
-                    "auto_adjust=False verwenden."
-                ),
-                showarrow=False,
-                bgcolor="rgba(254, 243, 199, 0.95)",   # gelb
-                bordercolor="#f59e0b",
-                borderwidth=1.5,
-                borderpad=8,
-                font=dict(size=12, color="#1c1917"),
-                align="left",
-            )
-        ]
+        margin=dict(l=0, r=0, t=40, b=0)
     )
 
     fig.show()

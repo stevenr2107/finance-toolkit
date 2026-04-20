@@ -1,3 +1,10 @@
+"""
+Day 02 - Multi Stock Analysis
+Berechnet Returns, Volatilität, Korrelation und 
+Performance-Tabellen für mehrere Aktien gleichzeitig
+"""
+
+
 import yfinance as yf
 import pandas as pd
 
@@ -91,13 +98,14 @@ def load_data(tickers: list, period: str = "1y") -> pd.DataFrame:
 
 def get_returns(df: pd.DataFrame) -> pd.DataFrame:
     return df.pct_change().dropna()
+# Es werden die returns in einem dataset gespeichert
 
 def get_volatility(returns: pd.DataFrame) -> pd.Series:
     return (returns.std() * (252 ** 0.5)).sort_values(ascending=False)
-
+# returns.std berechnet wie stark vom mittelwert schwankt pro tag
 def get_correlation(returns: pd.DataFrame) -> pd.DataFrame:
     return returns.corr().round(2)
-
+# schaut welche returns korrelieren 
 def get_performance_table(df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame({
     "1M": ((df.iloc[-1] / df.iloc[-21]) -1).round(4) * 100,
@@ -105,7 +113,7 @@ def get_performance_table(df: pd.DataFrame) -> pd.DataFrame:
     "6M": ((df.iloc[-1] / df.iloc[-126]) -1).round(4) * 100,
     "1Y": ((df.iloc[-1] / df.iloc[0]) -1).round(4) * 100
     })
-
+# performance auf die Zeiten gerechnet -> Tag 1/21
 
 # Main Block - So ruft man es auf 
 if __name__ == "__main__": 

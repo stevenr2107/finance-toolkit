@@ -1021,46 +1021,37 @@ def plot_portfolio_overview(positions: pd.DataFrame) -> None:
 
 
 def plot_equity_vs_benchmark(equity_curve: pd.DataFrame) -> None:
-    """Portfolio vs. Benchmark als prozentuale Returns — vergleichbar trotz Einzahlungen"""
+    """Portfolio vs Bnechmark + Drawdown """
     fig = make_subplots(
         rows=2, cols=1, shared_xaxes=True,
-        vertical_spacing=0.05, row_heights=[0.65, 0.35],
-        subplot_titles=["Portfolio vs. Benchmark (SPY) — kumulativer Return (%)", "Drawdown (%)"]
+        vertical_spacing=0.05,row_heights=[0.65,0.35],
+        subplot_titles=["Portfolio vs. Benchmark (SPY)", "Drawdown"]
     )
 
     colors = {"Portfolio": "#2563eb", "Benchmark": "#94a3b8"}
 
     for col in ["Portfolio", "Benchmark"]:
         series = equity_curve[col]
-
-        # Auf 0% normalisieren — beide starten bei 0
-        pct = ((series / series.iloc[0]) - 1) * 100
-
         fig.add_trace(go.Scatter(
-            x=pct.index, y=pct.round(2), name=col,
-            line=dict(color=colors[col], width=2 if col == "Portfolio" else 1.5)
+            x=series.index, y =series.round(2), name=col,
+            line=dict(color=colors[col], width=2 if col== "Portfolio" else 1.5)
         ), row=1, col=1)
 
-        # Drawdown bleibt in %
         rolling_max = series.cummax()
-        dd = ((series - rolling_max) / rolling_max * 100).round(2)
+        dd= ((series - rolling_max) / rolling_max * 100).round(2)
         fig.add_trace(go.Scatter(
             x=dd.index, y=dd, name=f"{col} DD",
-            line=dict(color=colors[col], width=1, dash="dot"),
-            fill="tozeroy", opacity=0.4, showlegend=False
+            line=dict(color = colors[col], width=1, dash="dot"),
+            fill="tozeroy", opacity = 0.4, showlegend=False
         ), row=2, col=1)
-
-    # Nulllinie einzeichnen
-    fig.add_hline(y=0, line_dash="dash", line_color="black",
-                  line_width=0.8, row=1, col=1)
 
     fig.update_layout(
         height=600, template="plotly_white",
         hovermode="x unified",
         legend=dict(orientation="h", y=1.02),
-        margin=dict(l=0, r=0, t=50, b=0)
+        margin=dict(l=0, r=0, t=40, b=0)
     )
-    fig.update_yaxes(title_text="Return (%)", row=1, col=1)
+    fig.update_yaxes(title_text="Wert ($)", row=1, col=1)
     fig.update_yaxes(title_text="Drawdown (%)", row=2, col=1)
     fig.show()
 
