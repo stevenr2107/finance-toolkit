@@ -1,3 +1,7 @@
+"""
+Eigene Indikatorfunktionen um sie zu verstehen und easy zu importieren 
+"""
+
 import yfinance as yf
 import pandas as pd
 import plotly.graph_objects as go

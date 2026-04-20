@@ -1,3 +1,18 @@
+"""
+Um das Skript zu starten muss man ins terminal schreiben
+: streamlit run dashboard.py
+"""
+
+import sys
+import os
+
+# Finde den Hauptordner (quant-finance-toolkit)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Füge alle Unterordner zum Python-Suchpfad hinzu
+for folder in ["01_foundation", "02_indicators", "03_dashboard", "04_backtesting", "05_strategies", "06_portfolio"]:
+    sys.path.append(os.path.join(BASE_DIR, folder))
+
 import streamlit as st
 import yfinance as yf
 import pandas as pd
@@ -218,7 +233,7 @@ with tab1:
     if show_volume:
        fig.update_yaxes(title_text="Vol", row=3, col=1)
 
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     #--- macd expander ---
     with st.expander("MACD anzeigen"):
@@ -248,7 +263,7 @@ with tab1:
             hovermode="x unified",
             margin=dict(l=0, r=0, t=10, b=0)
         )
-        st.plotly_chart(fig_macd, use_container_width=True)
+        st.plotly_chart(fig_macd, width="stretch")
 
     # --- Company info ---
     with st.expander("Company Info"):
@@ -340,7 +355,7 @@ with tab2:
         .format("{:.2f}%", subset=["1M", "3M", "6M", "1Y", "Volatilität"])\
         .format("{:.1f})", subset=["RSI"]) # applymap malt die zahlen an
 
-    st.dataframe(styled, use_container_width=True)
+    st.dataframe(styled, width="stretch")
 
     #--- normalisierter Kursverlauf ---
     st.markdown("#### Kursverlauf normalisiert (Startpunkt = 100)")
@@ -378,7 +393,7 @@ with tab2:
         margin=dict(l=0, r=0, t=30, b=0)
     )
 
-    st.plotly_chart(fig_peer, use_container_width=True)
+    st.plotly_chart(fig_peer, width="stretch")
 
 with tab3:
     st.subheader("DCF Bewertung - Discounted Cash Flow")
@@ -511,7 +526,7 @@ with tab3:
         margin=dict(l=0, r=0, t=30, b=0)
     )
 
-    st.plotly_chart(fig_dcf, use_container_width=True)
+    st.plotly_chart(fig_dcf, width="stretch")
 
 with tab4:
     st.subheader("Rohdaten")
@@ -535,7 +550,7 @@ with tab4:
         export_df.style.map(
             highlight_returns, subset=["Return"]
         ),
-        use_container_width=True,
+        width="stretch",
         height=400
     )
 
@@ -550,3 +565,4 @@ with tab4:
         mime="text/csv"
     )
         
+
