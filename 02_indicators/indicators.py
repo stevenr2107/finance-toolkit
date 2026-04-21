@@ -7,6 +7,16 @@ import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
+import sys
+import os
+
+# Finde den Hauptordner (quant-finance-toolkit)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Füge alle Unterordner zum Python-Suchpfad hinzu
+for folder in ["01_foundation", "02_indicators", "03_dashboard", "04_backtesting", "05_strategies", "06_portfolio"]:
+    sys.path.append(os.path.join(BASE_DIR, folder))
+
 
 
 def sma(series: pd.Series, window:int ) -> pd.Series: # series ist nur eine spalte 
@@ -214,6 +224,17 @@ def find_crossovers(df:pd.DataFrame) -> pd.DataFrame:
     print(death.round(2))
 
     return df
+
+# ============================================================
+# Phase 2 — Tag 15: Bollinger Bands & ATR
+# ============================================================
+
+from day15_bollinger_atr import (
+    bollinger_bands,
+    detect_squeeze,
+    atr,
+    atr_levels,
+)
 
 if __name__ == "__main__":
     raw = yf.download("SPY", period="5y", auto_adjust=True)
