@@ -1,6 +1,6 @@
 """
 Um das Skript zu starten muss man ins terminal schreiben
-: streamlit run dashboard.py
+: streamlit run /Users/steven/finance-toolkit/03_dashboard/dashboard.py
 """
 
 import sys
