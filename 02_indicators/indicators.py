@@ -236,6 +236,21 @@ from day15_bollinger_atr import (
     atr_levels,
 )
 
+# ============================================================
+# Phase 2 — Tag 16: VWAP, OBV, Stochastic
+# ============================================================
+
+from day16_volume_indicators import (
+    vwap,
+    vwap_bands,
+    obv,
+    obv_analysis,
+    stochastic,
+    stochastic_rsi,
+    volume_analysis,
+    combined_volume_signal,
+)
+
 if __name__ == "__main__":
     raw = yf.download("SPY", period="5y", auto_adjust=True)
     raw.columns = raw.columns.get_level_values(0)
