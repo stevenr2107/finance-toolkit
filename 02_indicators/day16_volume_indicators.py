@@ -8,6 +8,16 @@ Warum Volumen?
     Ein anstieg ohne volumen ist schwach  
 """
 
+"""
+- OBV DIvergenz ist das frühste signal das man bekommen kann 
+
+- VWAP ist eine wichtige support und resistance linie dort dreht es oft 
+
+- Kombinierte Scores schlagen Einzelsignale immer
+    Stochastic unter 20 + Kurs unter VWAP + bullishe OBV Divergenz + hohes volumen 
+    -> starkes Bullish Setup
+"""
+
 import yfinance as yf
 import pandas as pd
 import plotly.graph_objects as go

@@ -446,3 +446,21 @@ if __name__ == "__main__":
     # Export
     comparison.to_csv("day15_atr_comparison.csv", index=False)
     print("\nGespeichert: day15_atr_comparison.csv")
+
+# Man sieht hier, das die aktien sehr oft am unteren band kaufen und am 
+# oberen band drehen, da da gewinnmitnahmen stattfinden 
+
+# Drei Erkenntnisse die dich von anderen abheben:
+"""
+ATR ist die Basis von professionellem Risk Management. 
+Jeder Fixed-Prozent-Stop ist falsch. 
+Ein Trader der TSLA mit demselben Stop wie JNJ handelt versteht Volatilität nicht. 
+ATR löst das automatisch — kein Denken nötig, der Markt sagt dir wie weit der Stop sein muss.
+%B ist ehrlicher als der Kurs selbst. 
+Du siehst nicht wo der Kurs ist — du siehst wo er relativ zur aktuellen Volatilität ist. 
+%B von 0.95 auf NVDA bedeutet etwas völlig anderes als 0.95 auf SPY. 
+Das ist der Kontext den rohe Kurszahlen nicht haben.
+Squeeze + Momentum-Richtung = einer der stärksten Setups. 
+Die Energie baut sich auf, du weißt in welche Richtung der Druck zeigt, und wartest auf den Ausbruch. 
+Das ist keine Raketenwissenschaft — aber die wenigsten quantifizieren es so klar wie du jetzt.
+"""
