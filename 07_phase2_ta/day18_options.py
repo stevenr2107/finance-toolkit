@@ -26,7 +26,8 @@ from plotly.subplots import make_subplots
 import warnings
 warnings.filterwarnings("ignore")
 
-# Was ist eine option heute wert?
+# Eine Option ist eine Wette darauf, das ein Kurs einen bestimmten strike überschreitet.
+# Black scholes berechnet die wahr5scheinlichkeit dass das passiert- und multipliziert mit gewinn
 def black_scholes(S: float, # jetziger kurs
                   K: float, # Kaufpreis
                   T: float, # zeit bis expiration
@@ -80,6 +81,7 @@ def black_scholes(S: float, # jetziger kurs
         # man profitiert wen S < K
     return round(price, 4) # 4 da in cent. 
 
+# vektorisieren von balck scholes
 def black_scholes_batch(S: float,
                         K: np.ndarray, # array = [110, 155, 160]
                         T: float,
@@ -110,6 +112,8 @@ und beantwortet das mit Wahrscheinlichkeitsrechnung über die Normalverteilung.
 scipy.stats.norm.cdf ist das Werkzeug, das diese Wahrscheinlichkeiten liefert.
 """
 
+# Black scholes gibt dir einen preis. Die greeks sagen dir wie fragil dieser preis ist 
+
 def compute_greeks(
         S: float,
         K: float,
@@ -120,7 +124,8 @@ def compute_greeks(
     """
     Alle fünf greeks - das risikoprofil einer option 
 
-    DELTA (Δ): Zeigt basically den hebel an 
+    DELTA (Δ): zeigt hebel an 
+
         Wie viel ändert sich der options preis
         wenn der kurs um 1$ steigt?
         Call delta: 0 bis +1
@@ -128,7 +133,10 @@ def compute_greeks(
         Delta = 0.5 -> Option ist "at the money"
         Delta = 0.9 -> Option verhält sich fast wie die aktie 
 
-    GAMMA (Γ): Der hebel der AKtie bewegt sich mit der aktie und das gamma misst dies  
+    GAMMA (Γ): Risiko des hebels 
+    
+    Der hebel der AKtie bewegt sich mit der aktie und das gamma misst dies  
+
     -> wie schell ändert sich delta wenn aktie um 1$ steigt? (Wie die 2. Ableitung)und die 1. ableitung von delta 
         wie schnell ändert sich delta?
         Hoch bei ATM Optionen kurz vor Expiration.
@@ -136,12 +144,14 @@ def compute_greeks(
         = gefährlich wenn man es nicht versteht 
 
     THETA (Θ): wieviel verliert die option pro tag allein durch zeit 
+
         Zeitwert-Verlust pro Tag. 
         Immer negativ für Käufer - Zeit ist dein Feind
         "theta - decay" - warum 90% der Retail-Optionskäufer verlieren 
         Eine option verliert täglich an Wert allein durch Zeitablauf.
 
-    VEGA (Ω): Volatilität ist geld 
+    VEGA (Ω): wieviel teurer wird die option bei +1% volatilität? (IV Crush)
+
         Sensitivität gegenüber Volatilitätsänderungen
         Preis Änderung bei 1% mehr volatilität 
         vor earninngs: Vega explodiert (IV steigt). 
