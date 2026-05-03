@@ -197,7 +197,7 @@ def plot_bb_atr(ticker: str, period: str = "6mo") -> None:
         cols=1,
         shared_xaxes=True,
         vertical_spacing=0.04,
-        row_heights=[0.50, 0.25, 0.25],
+        row_heights=[2.00, 0.25, 0.25],
         subplot_titles=[
             f"{ticker} - Bollinger Bands + ATR Stopp Loss",
             "Bandwidth (%) + Squeeze Detektor",
@@ -381,7 +381,7 @@ def compare_atr(tickers: list) -> pd.DataFrame:
 
 if __name__ == "__main__":
 
-    TICKER = "NVDA"
+    TICKER = "KO"
 
     print(f"Tag 15 - Bollinger bands & ATR {TICKER}")
     print( "=" * 50)
@@ -419,14 +419,14 @@ if __name__ == "__main__":
     print(f"  R/R Ratio:    1:{latest['rr_ratio']:.2f}")
 
     #--- Chart ---
-    plot_bb_atr(TICKER, "6mo")
+    plot_bb_atr(TICKER, "4y")
 
     #--- Multi Ticker ATR Vergleich ---
     print("\n" + "=" * 55)
     print("ATR & SQUEEZE VERGLEICH")
     print("=" * 55)
 
-    universe = ["AAPL", "NVDA", "TSLA", "MSFT", "JPM", "SPY"]
+    universe = ["AAPL", "NVDA", "TSLA", "MSFT", "JPM", "SPY", "GME"]
     comparison = compare_atr(universe)
     print(comparison.to_string(index=False))
 

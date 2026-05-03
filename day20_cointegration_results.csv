@@ -1,0 +1,6 @@
+pair,coint_score,p_value,cointegrated,hedge_ratio,intercept,r_squared,spread_adf_p,spread_mean,spread_std
+KO/PEP,-0.2246,0.9791,False,0.0677,48.8867,0.0107,0.9359,-0.0,7.8671
+GLD/SLV,-2.719,0.1928,False,5.4111,73.7914,0.8711,0.0703,0.0,29.6207
+XOM/CVX,-2.0998,0.4765,False,0.9416,-33.7902,0.8545,0.2449,-0.0,9.3898
+JPM/BAC,-1.6359,0.7055,False,7.3234,-92.0896,0.7524,0.4646,-0.0,33.6086
+MSFT/GOOGL,-0.9767,0.9072,False,1.0433,187.5368,0.5413,0.762,-0.0,58.1789
