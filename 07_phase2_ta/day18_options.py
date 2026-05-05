@@ -305,6 +305,10 @@ def implied_volatility(market_price: float,
     except ValueError: # wenn kein vorzeichenwechsel gefunden wird 
         return 0
     
+# baut ein 2d- raster aus strike x laufzeit und berechnet für jeden punkt die iv
+# - atm optionen haben die niedrigste IV 
+# - je weiter otm desto höher die IV (Angst Prämie)
+# - Kurze laufzeiten haben ausgeprägte smiles 
 def iv_surface(S: float,
                T_range: list,
                K_range: list,
@@ -391,7 +395,7 @@ IV > Historical Vol Markt erwartet mehr Bewegung als in der Vergangenheit → Op
 IV < Historical Vol Markt unterschätzt Risiko → Optionen günstig (oder: stille vor dem Sturm)
 """
 
-
+# Berechnet den p&L bei expiration für beliebige Kombinationen von positionen 
 def options_pnl_profile(positions: list,
                         S_range: np.ndarray) -> pd.DataFrame:
     """

@@ -10,6 +10,15 @@ die drei fehler die 99 % aller backtests ruinieren:
 heute fixt du alle drei
 """
 
+
+"""
+Effizienz Score: 0.15 katastrophe 
+
+grid search  auf train daten, damit man nicht in die zukunft schaut 
+
+welche sma periode hat die beste sharpe ratio?
+"""
+
 import yfinance as yf
 import pandas as pd
 import numpy as np
