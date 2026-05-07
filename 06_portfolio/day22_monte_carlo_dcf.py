@@ -733,17 +733,17 @@ def plot_monte_carlo_distribution(sim_df:        pd.DataFrame,
 
     # Konfidenzintervall Zonen
     ci_colors = [
-        (stats["ci_95"], "rgba(239,68,68,0.10)",   "95% CI"),
-        (stats["ci_90"], "rgba(245,158,11,0.15)",  "90% CI"),
-        (stats["ci_80"], "rgba(37,99,235,0.20)",   "80% CI"),
+        (stats["ci_95"], "rgba(239,68,68,0.10)",   "95% CI", "top right"),
+        (stats["ci_90"], "rgba(245,158,11,0.15)",  "90% CI", "bottom right"),
+        (stats["ci_80"], "rgba(37,99,235,0.20)",   "80% CI", "bottom left"),
     ]
-    for (lo, hi), fill_color, ci_name in ci_colors:
+    for (lo, hi), fill_color, ci_name, pos in ci_colors:
         fig.add_vrect(
             x0=lo, x1=hi,
             fillcolor=fill_color,
             layer="below", line_width=0,
             annotation_text=ci_name,
-            annotation_position="top left",
+            annotation_position=pos,
             row=1, col=1
         )
 
@@ -776,7 +776,7 @@ def plot_monte_carlo_distribution(sim_df:        pd.DataFrame,
             line_color=color,
             line_width=2,
             annotation_text=f"Kurs: ${cp:.0f}",
-            annotation_position="top left",
+            annotation_position="bottom left",
             row=1, col=1
         )
 
@@ -842,8 +842,8 @@ def plot_monte_carlo_distribution(sim_df:        pd.DataFrame,
     fig.update_layout(
         height=700,
         template="plotly_white",
-        legend=dict(orientation="h", y=1.02),
-        margin=dict(l=0, r=0, t=60, b=0)
+        legend=dict(orientation="h", y=-0.05 ,x =0.0),
+        margin=dict(l=0, r=0, t=60, b=60)
     )
 
     fig.update_xaxes(title_text="Intrinsic Value ($)", row=1, col=1)
@@ -944,8 +944,8 @@ def plot_scenario_waterfall(scenario_df: pd.DataFrame,
         y=prices,
         marker_color=colors[:len(labels)],
         text=[f"${p:.0f}" for p in prices],
-        textposition="outside",
-        textfont=dict(size=14, color="#1e293b"),
+        textposition="inside",
+        textfont=dict(size=14, color="white"),
         width=0.5,
         showlegend=False
     ))
@@ -963,7 +963,7 @@ def plot_scenario_waterfall(scenario_df: pd.DataFrame,
             color  = "#16a34a" if upside >= 0 else "#ef4444"
             fig.add_annotation(
                 x=row["Szenario"],
-                y=row["Preis ($)"] + max(prices) * 0.03, # annotation 3% der max balkenhöhe
+                y=row["Preis ($)"] + max(prices) * 0.06, # annotation 3% der max balkenhöhe
                 text=f"{sign}{upside:.1f}%",
                 showarrow=False,
                 font=dict(color=color, size=12)
@@ -971,7 +971,10 @@ def plot_scenario_waterfall(scenario_df: pd.DataFrame,
 
     fig.update_layout(
         title=f"{ticker} — Szenario Analyse (Bull / Base / Bear)",
-        yaxis_title="Intrinsic Value ($)",
+        yaxis=dict(
+            title="Intrinsic Value ($)",
+            range=[0, max(prices) * 1.20]  # ← 20% Platz nach oben
+        ),
         template="plotly_white",
         height=420,
         margin=dict(l=0, r=0, t=60, b=0)
@@ -981,7 +984,7 @@ def plot_scenario_waterfall(scenario_df: pd.DataFrame,
 
 
 def plot_dcf_bridge(base_result: dict,
-                    ticker:      str) -> None:
+                    ticker:      str, current_price: float=None, shares: float=None) -> None:
     """
     Waterfall Chart: Wie kommt der Enterprise Value zustande?
 
@@ -1010,6 +1013,13 @@ def plot_dcf_bridge(base_result: dict,
     ]
     values = [phase1_pv, phase2_pv, pv_tv, ev]
     colors = ["#3b82f6", "#8b5cf6", "#f59e0b", "#16a34a"]
+
+    # Market Cap Säule nur wenn beide Werte vorhanden
+    if current_price is not None and shares is not None:
+        market_cap = current_price * shares   # Aktienkurs × Anzahl Aktien = Market Cap in B$
+        labels.insert(0, "Market Cap (heute)")
+        values.insert(0, market_cap)
+        colors.insert(0, "#94a3b8")           # grau → Referenzwert, nicht DCF
 
     fig = go.Figure(go.Bar(
         x=labels,
@@ -1127,7 +1137,7 @@ if __name__ == "__main__":
     print("=" * 55)
 
     # --- Ticker auswählen ---
-    TICKER = "AAPL"
+    TICKER = "META"
 
     # --- Echte Parameter laden ---
     params = get_real_params(TICKER)
@@ -1160,7 +1170,7 @@ if __name__ == "__main__":
     print(f"   Intrinsic Price: ${base_result['intrinsic_price']:.2f}")
     print(f"   Terminal Value %:{base_result['tv_pct']:.1f}%")
 
-    plot_dcf_bridge(base_result, TICKER)
+    plot_dcf_bridge(base_result, TICKER, current_price = current_price, shares=params.shares)
 
     # --- Szenario Analyse ---
     print("\n2. Szenario Analyse")
