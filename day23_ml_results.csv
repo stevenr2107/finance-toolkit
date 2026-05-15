@@ -1,5 +1,5 @@
 Ticker,Modell,AUC-ROC,Accuracy
-QQQ,Logistic Regression,0.5357,0.56
-AAPL,Gradient Boosting,0.6345,0.5567
-MSFT,Gradient Boosting,0.5169,0.5267
-JPM,Gradient Boosting,0.4276,0.5133
+QQQ,Logistic Regression,0.5542,0.5667
+AAPL,Gradient Boosting,0.6226,0.59
+MSFT,Gradient Boosting,0.507,0.5567
+JPM,Gradient Boosting,0.4568,0.52

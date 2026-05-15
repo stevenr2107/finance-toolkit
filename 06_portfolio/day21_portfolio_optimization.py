@@ -1140,7 +1140,7 @@ if __name__ == "__main__":
 
     # --- Universe ---
     TICKERS = [
-        "AAPL", "MSFT", "GOOGL", "HIMS",
+        "GLD", "SLV", "COPX", "HIMS",
         "JPM",  "JNJ",  "XOM", "TSLA"
     ]
     CAPITAL   = 10_000

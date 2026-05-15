@@ -1,8 +1,8 @@
 Ticker,Score,Signal,VWAP Dist,Vol Ratio,Stoch %K
-AAPL,+3,Stark Bullish,+5.0%,1.74x,76
-MSFT,+2,Bullish,+2.0%,0.90x,59
-GOOGL,+1,Bullish,+13.0%,1.12x,98
-AMZN,+2,Bullish,+7.7%,1.01x,82
-NVDA,+2,Bullish,+0.4%,0.87x,29
-META,+1,Bullish,-4.9%,1.32x,10
-TSLA,+2,Bullish,+4.8%,0.97x,66
+AAPL,+2,Bullish,+7.2%,1.08x,95
+MSFT,+2,Bullish,+0.1%,0.93x,48
+GOOGL,+1,Bullish,+11.4%,0.79x,98
+AMZN,+2,Bullish,+5.0%,0.71x,80
+NVDA,+1,Bullish,+5.9%,0.90x,89
+META,+1,Bullish,-4.9%,0.85x,14
+TSLA,+2,Bullish,+10.9%,1.02x,96
