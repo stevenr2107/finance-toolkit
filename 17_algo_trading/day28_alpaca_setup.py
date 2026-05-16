@@ -438,7 +438,7 @@ class AlpacaClient:
             status = status,
             limit  = limit,
         )
-        orders = self.trading.get_orders(request_params=req)
+        orders = self.trading.get_orders(filter=req)
 
         if not orders:
             return pd.DataFrame()
