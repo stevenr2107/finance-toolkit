@@ -1,0 +1,17 @@
+{
+  "ticker": "NVDA",
+  "recommendation": "HOLD",
+  "conviction": "low",
+  "price_target_bull": 259.12,
+  "price_target_base": 236.59,
+  "price_target_bear": 202.79,
+  "current_price": 225.32000732421875,
+  "key_risks": [
+    "Makrorisiken",
+    "Competitive Pressure"
+  ],
+  "catalysts": [
+    "Earnings Beat",
+    "AI Tailwinds"
+  ]
+}
