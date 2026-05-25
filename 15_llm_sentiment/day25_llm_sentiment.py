@@ -1,6 +1,10 @@
 """
 Day 25 — AI Sentiment Analyse mit LLMs
 
+
+Momentan ist es nur auf vader eingestellt aber sobald man llm_use anhat, wird gpt doer anthropic benutzt
+dann entstehen minimale kosten und man bekommt echte dashboards raus 
+
 Warum LLMs besser sind als VADER/TextBlob:
     VADER: regelbasiert, kennt "not bad" nicht wirklich.
     TextBlob: einfaches NLP, versteht keinen Kontext.

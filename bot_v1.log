@@ -1,0 +1,32 @@
+2026-05-20 11:56:04,556 | INFO | Trading Bot V1 initialisiert
+2026-05-20 11:56:04,556 | INFO | Universe:    ['AAPL', 'MSFT', 'NVDA']
+2026-05-20 11:56:04,556 | INFO | Strategie:   SMA 20/50
+2026-05-20 11:56:04,556 | INFO | Paper:       True
+2026-05-20 11:56:57,943 | INFO | Trading Bot V1 initialisiert
+2026-05-20 11:56:57,944 | INFO | Universe:    ['AAPL', 'MSFT', 'NVDA']
+2026-05-20 11:56:57,944 | INFO | Strategie:   SMA 20/50
+2026-05-20 11:56:57,944 | INFO | Paper:       True
+2026-05-20 11:57:28,277 | INFO | Trading Bot V1 initialisiert
+2026-05-20 11:57:28,277 | INFO | Universe:    ['AAPL', 'MSFT', 'NVDA']
+2026-05-20 11:57:28,277 | INFO | Strategie:   SMA 20/50
+2026-05-20 11:57:28,277 | INFO | Paper:       True
+2026-05-20 11:57:28,992 | INFO | Trading Bot V1 initialisiert
+2026-05-20 11:57:28,992 | INFO | Universe:    ['AAPL', 'MSFT', 'NVDA']
+2026-05-20 11:57:28,992 | INFO | Strategie:   SMA 20/50
+2026-05-20 11:57:28,992 | INFO | Paper:       True
+2026-05-20 11:57:35,939 | INFO | ─── Loop #1 ───
+2026-05-20 11:57:35,949 | INFO | ✅ Bot gestartet
+2026-05-20 11:57:36,063 | INFO | Markt geschlossen — warte...
+2026-05-20 11:58:13,174 | INFO | Bot gestoppt
+2026-05-22 15:51:54,056 | INFO | Trading Bot V1 initialisiert
+2026-05-22 15:51:54,056 | INFO | Universe:    ['AAPL', 'MSFT', 'NVDA']
+2026-05-22 15:51:54,056 | INFO | Strategie:   SMA 20/50
+2026-05-22 15:51:54,056 | INFO | Paper:       True
+2026-05-22 15:52:06,007 | INFO | ─── Loop #1 ───
+2026-05-22 15:52:06,008 | INFO | ✅ Bot gestartet
+2026-05-22 15:52:06,289 | INFO | Berechne Signale...
+2026-05-22 15:52:07,642 | INFO |   AAPL: Signal=LONG | Cross=none | RSI=62.4 | Preis=$276.83
+2026-05-22 15:52:07,642 | INFO |   MSFT: Signal=LONG | Cross=none | RSI=54.2 | Preis=$413.62
+2026-05-22 15:52:07,642 | INFO |   NVDA: Signal=LONG | Cross=none | RSI=52.9 | Preis=$198.48
+2026-05-22 15:52:07,755 | INFO | Loop #1 fertig in 1.7s
+2026-05-22 15:53:02,684 | INFO | Bot gestoppt

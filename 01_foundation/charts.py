@@ -113,7 +113,7 @@ fig3.show()
 
 
 # --- Chart 4: Heatmap mit Seaborn (Matplotlib) --- 
-tickers = ["AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "META", "TSLA"]
+tickers = ["SPY", "IGV", "MSFT", "GOOGL", "AMZN", "NVDA", "META", "TSLA"]
 prices = yf.download(tickers, period="1y", auto_adjust=True)["Close"]
 returns = prices.pct_change().dropna()
 corr = returns.corr()

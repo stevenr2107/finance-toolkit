@@ -398,11 +398,12 @@ class AlpacaClient:
         }
 
     def close_position(self, ticker: str) -> dict:
-        """
-        Schließt eine komplette Position sofort. 
-        Market Order für die gesamte Qty.
-        """
+        """Schließt eine komplette Position sofort."""
         try:
+            cancelled = self._cancel_orders_for_ticker(ticker)
+            if cancelled > 0:
+                time.sleep(1)  # ← Alpaca braucht ~1s um Shares freizugeben
+
             resp = self.trading.close_position(ticker)
             result = {
                 "ticker":    ticker,
@@ -414,6 +415,8 @@ class AlpacaClient:
             return result
         except Exception as e:
             return {"error": str(e), "ticker": ticker}
+
+
 
     def close_all_positions(self) -> list:
         """*** Schließt ALLE offenen Positionen. Kill-Switch. ***"""
@@ -796,10 +799,14 @@ def plot_portfolio_live(monitor:  PortfolioMonitor,
             showlegend=False
         ), row=2, col=2)
 
-        fig.add_hline(
-            y=0, line_color="#1e293b",
-            line_width=1, row=2, col=2
-        )
+        fig.add_trace(go.Scatter(
+            x=positions["ticker"].tolist(),
+            y=[0] * len(positions),
+            mode="lines",
+            line=dict(color="#1e293b", width=1, dash="dot"),
+            showlegend=False,
+            hoverinfo="skip",
+        ), row=2, col=2)
 
     fig.update_layout(
         height=650,
@@ -833,7 +840,9 @@ def plot_trade_log(client: AlpacaClient) -> None:
             "Trades nach Ticker",
             "Buy vs. Sell Verteilung"
         ],
-        horizontal_spacing=0.12
+        horizontal_spacing=0.12,
+        specs=[[{"type": "xy"}, {"type": "pie"}]]
+
     )
 
     # Trades nach Ticker
@@ -1029,46 +1038,39 @@ if __name__ == "__main__":
         print(f"   Order ID:  {order['order_id']}")
         print(f"   Status:    {order['status']}")
 
-        time.sleep(2)
+        # Länger warten + aktiv auf Fill pollen
+        print("   Warte auf Fill...")
+        pos = None
+        for _ in range(10):          # max 10 × 1s = 10 Sekunden
+            time.sleep(1)
+            pos = client.get_position("AAPL")
+            if pos:
+                break
 
         # Position prüfen
-        pos = client.get_position("AAPL")
         if pos:
-            print(f"\n   Position:")
-            print(f"   AAPL: {pos['qty']} Aktien "
-                  f"@ ${pos['avg_price']:.2f}")
-            print(f"   PnL:  ${pos['pnl_abs']:+.2f} "
-                  f"({pos['pnl_pct']:+.2f}%)")
+            print(f"   AAPL: {pos['qty']} Aktien @ ${pos['avg_price']:.2f}")
+            print(f"   PnL:  ${pos['pnl_abs']:+.2f} ({pos['pnl_pct']:+.2f}%)")
 
-        # Stop Loss setzen
-        if pos:
-            stop_price = round(
-                pos["avg_price"] * 0.97, 2
-            )   # 3% Stop Loss
-            sl = client.stop_loss_order(
-                "AAPL", 1, stop_price
-            )
-            print(f"\n   Stop Loss gesetzt: ${stop_price:.2f}")
-            print(f"   (3% unter Einstieg)")
+            stop_price = round(pos["avg_price"] * 0.97, 2)
+            client.stop_loss_order("AAPL", 1, stop_price)
+            print(f"   Stop Loss: ${stop_price:.2f} (−3%)")
 
-        # Monitor Snapshot
-        print("\n   Portfolio Snapshot:")
-        snap = monitor.snapshot()
-        print(f"   Wert:     ${snap['portfolio_value']:,.2f}")
-        print(f"   PnL/Tag:  ${snap['pnl_today']:+.2f}")
+            snap = monitor.snapshot()
+            print(f"   Portfolio: ${snap['portfolio_value']:,.2f}")
 
-        # Position nach 5 Sekunden schließen
+            time.sleep(5)
+            print("   Schließe AAPL...")
+            print(client.close_position("AAPL"))
+        else:
+            print("   ⚠ Order nicht gefüllt innerhalb 10s (Markt ggf. gerade geschlossen)")
+            client.cancel_all_orders()
+    else:
+        print("   Markt geschlossen — kein Order Test")
+        print("   US Markt: Mo–Fr 15:30–22:00 Uhr MEZ")
         print("\n   Warte 5 Sekunden...")
         time.sleep(5)
 
-        print("   Schließe AAPL Position...")
-        close_result = client.close_position("AAPL")
-        print(f"   {close_result}")
-
-    else:
-        print("   Markt geschlossen — kein Order Test")
-        print("   Führe Order Tests während Marktzeiten aus")
-        print("   US Markt: Mo–Fr 15:30–22:00 Uhr MEZ")
 
     # --- Portfolio Chart ---
     print("\n9. Portfolio Visualisierung")
