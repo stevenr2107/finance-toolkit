@@ -1,0 +1,58 @@
+{
+  "generated": "2026-05-30T14:48:32.643217",
+  "tech_portfolio": {
+    "brinson": {
+      "total_allocation": -0.0861,
+      "total_selection": 0.1859,
+      "total_interaction": 0.1886,
+      "total_alpha": 41.0473,
+      "portfolio_return": 4133.82,
+      "benchmark_return": 0.29,
+      "explained_alpha": 0.2883
+    },
+    "factors": {
+      "Alpha": {
+        "coefficient": 6.8e-05,
+        "t_stat": 0.444,
+        "significant": "False",
+        "annualized": 1.7018
+      },
+      "Market": {
+        "coefficient": 1.440646,
+        "t_stat": 43.702,
+        "significant": "True",
+        "annualized": null
+      },
+      "Size": {
+        "coefficient": -0.088377,
+        "t_stat": -3.965,
+        "significant": "True",
+        "annualized": null
+      },
+      "Value": {
+        "coefficient": -0.738711,
+        "t_stat": -30.635,
+        "significant": "True",
+        "annualized": null
+      },
+      "Momentum": {
+        "coefficient": -0.423552,
+        "t_stat": -15.029,
+        "significant": "True",
+        "annualized": null
+      }
+    },
+    "r_squared": 0.9505
+  },
+  "diversified": {
+    "brinson": {
+      "total_allocation": -0.068,
+      "total_selection": 0.199,
+      "total_interaction": 0.0597,
+      "total_alpha": 30.4466,
+      "portfolio_return": 3073.76,
+      "benchmark_return": 0.29,
+      "explained_alpha": 0.1908
+    }
+  }
+}

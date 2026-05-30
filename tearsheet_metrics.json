@@ -1,75 +1,75 @@
 {
-  "generated": "2026-05-25T11:13:59.866423",
+  "generated": "2026-05-27T14:27:47.926706",
   "strategy": "AAPL Buy & Hold",
   "period": "5y",
   "capital": 10000,
   "metrics": {
-    "total_return_pct": 149.27,
-    "cagr_pct": 20.13,
-    "volatility_pct": 27.42,
-    "sharpe": 0.623,
-    "sortino": 0.907,
-    "calmar": 0.603,
-    "omega": 1.117,
+    "total_return_pct": 152.49,
+    "cagr_pct": 20.48,
+    "volatility_pct": 27.44,
+    "sharpe": 0.633,
+    "sortino": 0.922,
+    "calmar": 0.614,
+    "omega": 1.119,
     "max_drawdown_pct": -33.36,
     "max_dd_duration_d": 354,
-    "current_dd_pct": 0.0,
-    "var_95_pct": -2.695,
-    "var_99_pct": -4.445,
+    "current_dd_pct": -0.16,
+    "var_95_pct": -2.696,
+    "var_99_pct": -4.454,
     "cvar_95_pct": -3.846,
-    "win_rate_pct": 53.3,
+    "win_rate_pct": 53.4,
     "avg_win_pct": 1.23,
-    "avg_loss_pct": -1.223,
-    "profit_factor": 1.154,
+    "avg_loss_pct": -1.225,
+    "profit_factor": 1.156,
     "best_day_pct": 15.329,
     "worst_day_pct": -9.246,
-    "skewness": 0.459,
-    "kurtosis": 6.989,
-    "n_trading_days": 1255,
-    "years": 4.98,
-    "information_ratio": 0.418,
-    "alpha_annual": 5.733,
+    "skewness": 0.457,
+    "kurtosis": 6.981,
+    "n_trading_days": 1253,
+    "years": 4.97,
+    "information_ratio": 0.425,
+    "alpha_annual": 5.846,
     "beta": 1.209,
     "initial_capital": 10000,
-    "final_value": 24926.76,
-    "profit_loss": 14926.76
+    "final_value": 25248.75,
+    "profit_loss": 15248.75
   },
   "comparison": {
     "Total Ret %": {
-      "AAPL Buy & Hold": 149.27,
-      "NVDA Buy & Hold": 1282.74,
-      "MA Crossover": 35.22,
-      "SPY (Benchmark)": 90.46
+      "AAPL Buy & Hold": 152.49,
+      "NVDA Buy & Hold": 1290.76,
+      "MA Crossover": 35.93,
+      "SPY (Benchmark)": 91.67
     },
     "CAGR %": {
-      "AAPL Buy & Hold": 20.13,
-      "NVDA Buy & Hold": 69.46,
-      "MA Crossover": 6.25,
-      "SPY (Benchmark)": 13.81
+      "AAPL Buy & Hold": 20.48,
+      "NVDA Buy & Hold": 69.8,
+      "MA Crossover": 6.37,
+      "SPY (Benchmark)": 13.98
     },
     "Vola %": {
-      "AAPL Buy & Hold": 27.42,
-      "NVDA Buy & Hold": 51.64,
-      "MA Crossover": 17.69,
-      "SPY (Benchmark)": 17.05
+      "AAPL Buy & Hold": 27.44,
+      "NVDA Buy & Hold": 51.68,
+      "MA Crossover": 17.7,
+      "SPY (Benchmark)": 17.06
     },
     "Sharpe": {
-      "AAPL Buy & Hold": 0.623,
-      "NVDA Buy & Hold": 1.181,
-      "MA Crossover": 0.148,
-      "SPY (Benchmark)": 0.551
+      "AAPL Buy & Hold": 0.633,
+      "NVDA Buy & Hold": 1.184,
+      "MA Crossover": 0.155,
+      "SPY (Benchmark)": 0.559
     },
     "Sortino": {
-      "AAPL Buy & Hold": 0.907,
-      "NVDA Buy & Hold": 1.902,
-      "MA Crossover": 0.167,
-      "SPY (Benchmark)": 0.758
+      "AAPL Buy & Hold": 0.922,
+      "NVDA Buy & Hold": 1.908,
+      "MA Crossover": 0.174,
+      "SPY (Benchmark)": 0.77
     },
     "Calmar": {
-      "AAPL Buy & Hold": 0.603,
-      "NVDA Buy & Hold": 1.047,
-      "MA Crossover": 0.215,
-      "SPY (Benchmark)": 0.564
+      "AAPL Buy & Hold": 0.614,
+      "NVDA Buy & Hold": 1.052,
+      "MA Crossover": 0.219,
+      "SPY (Benchmark)": 0.571
     },
     "Max DD %": {
       "AAPL Buy & Hold": -33.36,
@@ -78,21 +78,21 @@
       "SPY (Benchmark)": -24.5
     },
     "Win Rate %": {
-      "AAPL Buy & Hold": 53.3,
-      "NVDA Buy & Hold": 53.8,
+      "AAPL Buy & Hold": 53.4,
+      "NVDA Buy & Hold": 53.7,
       "MA Crossover": 28.8,
       "SPY (Benchmark)": 54.5
     },
     "Profit Factor": {
-      "AAPL Buy & Hold": 1.154,
-      "NVDA Buy & Hold": 1.246,
-      "MA Crossover": 1.105,
-      "SPY (Benchmark)": 1.163
+      "AAPL Buy & Hold": 1.156,
+      "NVDA Buy & Hold": 1.247,
+      "MA Crossover": 1.107,
+      "SPY (Benchmark)": 1.165
     },
     "VaR 95%": {
-      "AAPL Buy & Hold": -2.695,
-      "NVDA Buy & Hold": -4.747,
-      "MA Crossover": -1.806,
+      "AAPL Buy & Hold": -2.696,
+      "NVDA Buy & Hold": -4.754,
+      "MA Crossover": -1.807,
       "SPY (Benchmark)": -1.655
     },
     "CVaR 95%": {
@@ -102,16 +102,16 @@
       "SPY (Benchmark)": -2.452
     },
     "Skewness": {
-      "AAPL Buy & Hold": 0.459,
-      "NVDA Buy & Hold": 0.541,
-      "MA Crossover": 0.304,
-      "SPY (Benchmark)": 0.322
+      "AAPL Buy & Hold": 0.457,
+      "NVDA Buy & Hold": 0.54,
+      "MA Crossover": 0.302,
+      "SPY (Benchmark)": 0.32
     },
     "Kurtosis": {
-      "AAPL Buy & Hold": 6.989,
-      "NVDA Buy & Hold": 4.714,
-      "MA Crossover": 6.513,
-      "SPY (Benchmark)": 9.263
+      "AAPL Buy & Hold": 6.981,
+      "NVDA Buy & Hold": 4.704,
+      "MA Crossover": 6.501,
+      "SPY (Benchmark)": 9.238
     }
   }
 }

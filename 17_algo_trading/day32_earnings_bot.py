@@ -144,7 +144,7 @@ class EarningsCalendar:
 
     def get_historical_earnings(self,
                                   ticker:    str,
-                                  n_quarters: int = 8) -> pd.DataFrame:
+                                  n_quarters: int = 16) -> pd.DataFrame:
         """
         Lädt historische Earnings mit EPS Surprise.
 
@@ -229,14 +229,14 @@ class PreEarningsAnalysis:
         self.stock  = yf.Ticker(ticker)
 
     def get_historical_moves(self,
-                              n_quarters: int = 8) -> pd.DataFrame:
+                              n_quarters: int = 16) -> pd.DataFrame:
         """
         Berechnet Kursreaktion nach jedem historischen Earnings.
 
         Move = Schluss nach Earnings / Schluss vorher - 1
         """
         try:
-            hist_earnings = self.stock.earnings_history
+            hist_earnings = self.stock.get_earnings_dates(limit=n_quarters * 2)
 
             if hist_earnings is None or hist_earnings.empty:
                 return pd.DataFrame()
@@ -1395,7 +1395,7 @@ if __name__ == "__main__":
 
     # Historische Moves — bestes Beispiel
     print("\n📊 Historische Earnings Moves...")
-    focus_ticker = "NVDA"
+    focus_ticker = "MSFT"
     analyzer     = PreEarningsAnalysis(focus_ticker)
     moves_df     = analyzer.get_historical_moves()
     stats        = analyzer.get_move_statistics()
