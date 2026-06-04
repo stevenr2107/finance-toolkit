@@ -30,3 +30,7 @@
 2026-05-22 15:52:07,642 | INFO |   NVDA: Signal=LONG | Cross=none | RSI=52.9 | Preis=$198.48
 2026-05-22 15:52:07,755 | INFO | Loop #1 fertig in 1.7s
 2026-05-22 15:53:02,684 | INFO | Bot gestoppt
+2026-06-01 15:29:12,192 | INFO | Trading Bot V1 initialisiert
+2026-06-01 15:29:12,193 | INFO | Universe:    ['AAPL', 'MSFT', 'NVDA']
+2026-06-01 15:29:12,193 | INFO | Strategie:   SMA 20/50
+2026-06-01 15:29:12,193 | INFO | Paper:       True

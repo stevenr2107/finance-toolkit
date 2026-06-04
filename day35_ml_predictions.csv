@@ -1,0 +1,6 @@
+timestamp,ticker,probability,signal,confidence,model_auc,validated,actual_return
+2026-05-31T18:11:31.004593,AAPL,0.3597,flat,medium,0.3543,False,
+2026-05-31T18:11:31.004607,MSFT,0.441,flat,low,0.4461,False,
+2026-05-31T18:11:31.004611,NVDA,0.5747,flat,low,0.3623,False,
+2026-05-31T18:11:31.004613,GOOGL,0.3731,flat,medium,0.3328,False,
+2026-05-31T18:11:31.004616,SPY,0.4846,flat,low,0.4822,False,

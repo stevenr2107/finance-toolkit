@@ -1,0 +1,64 @@
+{
+  "trained": "2026-05-31T18:11:31.330066",
+  "universe": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "GOOGL",
+    "SPY"
+  ],
+  "models": {
+    "AAPL": {
+      "type": "RF",
+      "oos_auc": 0.3543,
+      "deployable": false
+    },
+    "MSFT": {
+      "type": "GBM",
+      "oos_auc": 0.4461,
+      "deployable": false
+    },
+    "NVDA": {
+      "type": "RF",
+      "oos_auc": 0.3623,
+      "deployable": false
+    },
+    "GOOGL": {
+      "type": "LR",
+      "oos_auc": 0.3328,
+      "deployable": false
+    },
+    "SPY": {
+      "type": "RF",
+      "oos_auc": 0.4822,
+      "deployable": false
+    }
+  },
+  "signals": {
+    "AAPL": {
+      "signal": "flat",
+      "probability": 0.3597,
+      "validated": false
+    },
+    "MSFT": {
+      "signal": "flat",
+      "probability": 0.441,
+      "validated": false
+    },
+    "NVDA": {
+      "signal": "flat",
+      "probability": 0.5747,
+      "validated": false
+    },
+    "GOOGL": {
+      "signal": "flat",
+      "probability": 0.3731,
+      "validated": false
+    },
+    "SPY": {
+      "signal": "flat",
+      "probability": 0.4846,
+      "validated": false
+    }
+  }
+}

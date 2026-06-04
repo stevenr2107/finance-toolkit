@@ -1336,13 +1336,19 @@ if __name__ == "__main__":
     tech_portfolio = Portfolio(
         name="Tech Growth Portfolio",
         positions=[
-            Position("AAPL",  0.20),
-            Position("MSFT",  0.20),
-            Position("NVDA",  0.20),
-            Position("GOOGL", 0.15),
-            Position("META",  0.10),
-            Position("AMZN",  0.10),
-            Position("JPM",   0.05),   # Diversifikation
+            Position("HIMS",  0.09),
+            Position("LIFT",  0.05),
+            Position("CRM",  0.04),
+            Position("MNDY",   0.04),
+            Position("PAYC",   0.04),
+            Position("SMCI",   0.04),
+            Position("SEDG",    0.04),
+            Position("ENPH",   0.036),
+            Position("LAC",   0.032),
+            Position("RIVN",   0.03),
+            Position("UPST",   0.03),
+            Position("DOCU",   0.03),
+            Position("OKTA",   0.03),   # Diversifikation
         ],
         benchmark="SPY"
     )
@@ -1351,16 +1357,19 @@ if __name__ == "__main__":
     diversified_portfolio = Portfolio(
         name="Diversified Portfolio",
         positions=[
-            Position("AAPL",  0.10),
-            Position("MSFT",  0.10),
-            Position("NVDA",  0.10),
-            Position("JPM",   0.10),
-            Position("JNJ",   0.10),
-            Position("XOM",   0.10),
-            Position("KO",    0.10),
-            Position("GLD",   0.10),
-            Position("BND",   0.10),
-            Position("SPY",   0.10),
+            Position("HIMS",  0.09),
+            Position("LIFT",  0.05),
+            Position("CRM",  0.04),
+            Position("MNDY",   0.04),
+            Position("PAYC",   0.04),
+            Position("SMCI",   0.04),
+            Position("SEDG",    0.04),
+            Position("ENPH",   0.036),
+            Position("LAC",   0.032),
+            Position("RIVN",   0.03),
+            Position("UPST",   0.03),
+            Position("DOCU",   0.03),
+            Position("OKTA",   0.03),
         ],
         benchmark="SPY"
     )

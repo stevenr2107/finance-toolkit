@@ -236,7 +236,7 @@ class PreEarningsAnalysis:
         Move = Schluss nach Earnings / Schluss vorher - 1
         """
         try:
-            hist_earnings = self.stock.get_earnings_dates(limit=n_quarters * 2)
+            hist_earnings = self.stock.earnings_history
 
             if hist_earnings is None or hist_earnings.empty:
                 return pd.DataFrame()

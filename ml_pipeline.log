@@ -1,0 +1,68 @@
+2026-05-31 18:11:11,801 | INFO | Starte Training für AAPL...
+2026-05-31 18:11:13,017 | INFO | AAPL: 37 Features berechnet
+2026-05-31 18:11:13,260 | INFO | AAPL: 496 Samples, 37 Features, Label-Rate: 51.21%
+2026-05-31 18:11:13,552 | INFO |   Fold 1/4: GBM=0.456  RF=0.699  LR=0.664
+2026-05-31 18:11:13,805 | INFO |   Fold 2/4: GBM=0.285  RF=0.346  LR=0.369
+2026-05-31 18:11:14,066 | INFO |   Fold 3/4: GBM=0.671  RF=0.759  LR=0.675
+2026-05-31 18:11:14,361 | INFO |   Fold 4/4: GBM=0.325  RF=0.394  LR=0.200
+2026-05-31 18:11:14,362 | INFO | AAPL: Bestes Modell: RF (AUC: 0.5494)
+2026-05-31 18:11:14,456 | INFO | AAPL: OOS AUC=0.3543  ACC=0.300
+2026-05-31 18:11:14,501 | INFO | AAPL: Modell gespeichert → 18_ml_production/models/AAPL_model.joblib
+2026-05-31 18:11:14,501 | INFO | AAPL: Deployable: False
+2026-05-31 18:11:15,506 | INFO | Starte Training für MSFT...
+2026-05-31 18:11:15,991 | INFO | MSFT: 37 Features berechnet
+2026-05-31 18:11:16,274 | INFO | MSFT: 496 Samples, 37 Features, Label-Rate: 46.37%
+2026-05-31 18:11:16,530 | INFO |   Fold 1/4: GBM=0.686  RF=0.567  LR=0.673
+2026-05-31 18:11:16,775 | INFO |   Fold 2/4: GBM=0.583  RF=0.564  LR=0.423
+2026-05-31 18:11:17,034 | INFO |   Fold 3/4: GBM=0.678  RF=0.667  LR=0.478
+2026-05-31 18:11:17,319 | INFO |   Fold 4/4: GBM=0.471  RF=0.374  LR=0.462
+2026-05-31 18:11:17,320 | INFO | MSFT: Bestes Modell: GBM (AUC: 0.6044)
+2026-05-31 18:11:17,492 | INFO | MSFT: OOS AUC=0.4461  ACC=0.540
+2026-05-31 18:11:17,495 | INFO | MSFT: Modell gespeichert → 18_ml_production/models/MSFT_model.joblib
+2026-05-31 18:11:17,495 | INFO | MSFT: Deployable: False
+2026-05-31 18:11:18,500 | INFO | Starte Training für NVDA...
+2026-05-31 18:11:19,071 | INFO | NVDA: 37 Features berechnet
+2026-05-31 18:11:19,355 | INFO | NVDA: 496 Samples, 37 Features, Label-Rate: 51.61%
+2026-05-31 18:11:19,613 | INFO |   Fold 1/4: GBM=0.461  RF=0.524  LR=0.339
+2026-05-31 18:11:19,865 | INFO |   Fold 2/4: GBM=0.650  RF=0.826  LR=0.479
+2026-05-31 18:11:20,131 | INFO |   Fold 3/4: GBM=0.587  RF=0.629  LR=0.720
+2026-05-31 18:11:20,407 | INFO |   Fold 4/4: GBM=0.353  RF=0.273  LR=0.517
+2026-05-31 18:11:20,407 | INFO | NVDA: Bestes Modell: RF (AUC: 0.5634)
+2026-05-31 18:11:20,502 | INFO | NVDA: OOS AUC=0.3623  ACC=0.500
+2026-05-31 18:11:20,546 | INFO | NVDA: Modell gespeichert → 18_ml_production/models/NVDA_model.joblib
+2026-05-31 18:11:20,546 | INFO | NVDA: Deployable: False
+2026-05-31 18:11:21,549 | INFO | Starte Training für GOOGL...
+2026-05-31 18:11:22,068 | INFO | GOOGL: 37 Features berechnet
+2026-05-31 18:11:22,237 | INFO | GOOGL: 496 Samples, 37 Features, Label-Rate: 53.43%
+2026-05-31 18:11:22,481 | INFO |   Fold 1/4: GBM=0.542  RF=0.714  LR=0.914
+2026-05-31 18:11:22,745 | INFO |   Fold 2/4: GBM=0.723  RF=0.732  LR=0.720
+2026-05-31 18:11:23,008 | INFO |   Fold 3/4: GBM=0.525  RF=0.385  LR=0.696
+2026-05-31 18:11:23,296 | INFO |   Fold 4/4: GBM=0.715  RF=0.415  LR=0.322
+2026-05-31 18:11:23,296 | INFO | GOOGL: Bestes Modell: LR (AUC: 0.6630)
+2026-05-31 18:11:23,298 | INFO | GOOGL: OOS AUC=0.3328  ACC=0.380
+2026-05-31 18:11:23,300 | INFO | GOOGL: Modell gespeichert → 18_ml_production/models/GOOGL_model.joblib
+2026-05-31 18:11:23,300 | INFO | GOOGL: Deployable: False
+2026-05-31 18:11:24,308 | INFO | Starte Training für SPY...
+2026-05-31 18:11:24,763 | INFO | SPY: 37 Features berechnet
+2026-05-31 18:11:25,089 | INFO | SPY: 496 Samples, 37 Features, Label-Rate: 51.21%
+2026-05-31 18:11:25,352 | INFO |   Fold 1/4: GBM=0.456  RF=0.603  LR=0.641
+2026-05-31 18:11:25,612 | INFO |   Fold 2/4: GBM=0.643  RF=0.647  LR=0.643
+2026-05-31 18:11:25,873 | INFO |   Fold 3/4: GBM=0.421  RF=0.468  LR=0.583
+2026-05-31 18:11:26,152 | INFO |   Fold 4/4: GBM=0.610  RF=0.771  LR=0.424
+2026-05-31 18:11:26,152 | INFO | SPY: Bestes Modell: RF (AUC: 0.6223)
+2026-05-31 18:11:26,249 | INFO | SPY: OOS AUC=0.4822  ACC=0.440
+2026-05-31 18:11:26,292 | INFO | SPY: Modell gespeichert → 18_ml_production/models/SPY_model.joblib
+2026-05-31 18:11:26,293 | INFO | SPY: Deployable: False
+2026-05-31 18:11:27,298 | INFO | Training abgeschlossen: 0/5 deployable
+2026-05-31 18:11:29,843 | INFO | AAPL: Modell geladen (OOS AUC: 0.354)
+2026-05-31 18:11:29,844 | INFO | AAPL: Features aus Cache
+2026-05-31 18:11:30,107 | INFO | MSFT: Modell geladen (OOS AUC: 0.446)
+2026-05-31 18:11:30,107 | INFO | MSFT: Features aus Cache
+2026-05-31 18:11:30,338 | INFO | NVDA: Modell geladen (OOS AUC: 0.362)
+2026-05-31 18:11:30,338 | INFO | NVDA: Features aus Cache
+2026-05-31 18:11:30,556 | INFO | GOOGL: Modell geladen (OOS AUC: 0.333)
+2026-05-31 18:11:30,557 | INFO | GOOGL: Features aus Cache
+2026-05-31 18:11:30,785 | INFO | SPY: Modell geladen (OOS AUC: 0.482)
+2026-05-31 18:11:30,785 | INFO | SPY: Features aus Cache
+2026-05-31 18:11:31,004 | INFO | Validation: 0/5 Signale valide
+2026-05-31 18:11:31,329 | INFO | Prediction Log gespeichert: day35_ml_predictions.csv

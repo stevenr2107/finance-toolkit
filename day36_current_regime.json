@@ -1,0 +1,12 @@
+{
+  "regime": "bull_trend",
+  "emoji": "\ud83d\udfe2",
+  "position_scalar": 1.0,
+  "days_in_regime": 41,
+  "combined_score": 3.0,
+  "short_vol": 0.0732,
+  "long_vol": 0.142,
+  "tech_regime": "bull_trend",
+  "vol_regime": "calm",
+  "timestamp": "2026-06-04T21:23:38.970206"
+}
